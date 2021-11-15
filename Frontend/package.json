@@ -6,20 +6,13 @@
   "author": "S-Senn <severin@senn-online.ch>",
   "private": true,
   "scripts": {
-    "dev": "quasar dev",
-    "dev-sse": "cross-env PROFILE=sse npm run dev",
-    "dev-prod": "cross-env PROFILE=prod npm run dev",
-    "build-prod": "cross-env PROFILE=prod npm run build",
-    "build": "quasar build",
-    "clean": "quasar clean",
-    "lint": "eslint --ext .js,.vue src",
+    "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "cross-env": "^7.0.3",
     "quasar": "^2.0.0",
     "vue-i18n": "^9.0.0",
     "vuex": "^4.0.1"
@@ -28,7 +21,10 @@
     "@babel/eslint-parser": "^7.13.14",
     "@quasar/app": "^3.0.0",
     "eslint": "^7.14.0",
-    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^7.0.0",
     "eslint-webpack-plugin": "^2.4.0"
   },

@@ -1,1 +1,2 @@
-INSERT INTO Category(name) VALUES ("test"),("test2")
+INSERT INTO Category(name) VALUES ('test');
+INSERT INTO USER (username,passwort) VALUES ('test','testpw');

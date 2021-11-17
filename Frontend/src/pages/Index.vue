@@ -1,17 +1,22 @@
 <template>
 <q-page class="flex flex-center">
+    asdas
     <q-input filled v-model="checkin" label="Filled" />
 </q-page>
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
     data() {
         return {
             checkin: "null"
         }
+    },
+    mounted() {
     }
-}
+}) 
 </script>
 
 <style>

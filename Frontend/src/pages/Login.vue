@@ -22,7 +22,7 @@
 <script>
 import { required } from 'vuelidate/lib/validators'
 import { Notify } from 'quasar'
-import { useStore } from 'vuex'
+
 export default {
     name: 'Loginpage',
     data() {
@@ -31,6 +31,8 @@ export default {
             password: "",
         }
     },
+    /*
+    TODO: Fixen der Valdiation
     validations: {
         password: {
             required
@@ -38,10 +40,9 @@ export default {
         username: {
             required
         }
-    },
+    },*/
     methods: {
         async submitLogin() {
-            const $store = useStore()
             this.$v.$touch()
             if (this.$v.$invalid) {
                 return

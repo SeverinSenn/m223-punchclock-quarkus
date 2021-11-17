@@ -1,6 +1,5 @@
 <template>
 <q-page class="flex flex-center">
-    asdas
     <q-input filled v-model="checkin" label="Filled" />
 </q-page>
 </template>

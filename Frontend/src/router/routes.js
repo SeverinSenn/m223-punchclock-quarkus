@@ -5,6 +5,7 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue'), meta: { requiredRole: "*" } },
+      { path: 'UserManagement', component: () => import('pages/UserManagement.vue'), meta: { requiredRole: "*" } },
     ],
 
   },

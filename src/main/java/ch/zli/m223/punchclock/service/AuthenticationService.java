@@ -1,8 +1,10 @@
 package ch.zli.m223.punchclock.service;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -27,7 +29,8 @@ public class AuthenticationService {
     }
 
     public String GenerateValidJwtToken(User user){
-        var permissions = Arrays.asList("User");
+        List<String> permissions = new ArrayList<String>();
+        permissions.add("User");
         if(user.getIs_Admin()){
             permissions.add("Admin");
         }

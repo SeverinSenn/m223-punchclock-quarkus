@@ -1,11 +1,10 @@
-/*package ch.zli.m223.punchclock.domain;
+package ch.zli.m223.punchclock.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class Entry {
-
+public class Time {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,10 +14,14 @@ public class Entry {
 
     @Column(nullable = false)
     private LocalDateTime checkOut;
-/*
+
     @ManyToOne
-    @JoinColumn(name = "category_id",nullable = false)
-    private Category category;
+    @JoinColumn(name = "project_id",nullable = false)
+    private Project project;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id",nullable = false)
+    private User user;
 
     public Long getId() {
         return id;
@@ -28,11 +31,11 @@ public class Entry {
         this.id = id;
     }
 
-    public LocalDateTime getCheckIn() {
+    public Boolean getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(LocalDateTime checkIn) {
+    public void setCheckIn(Boolean checkIn) {
         this.checkIn = checkIn;
     }
 
@@ -44,7 +47,19 @@ public class Entry {
         this.checkOut = checkOut;
     }
 
-    public void setCategory(Category c){ this.category = c; }
+    public Project getProject() {
+        return project;
+    }
 
-    public Category getCategory() { return this.category; }
-}*/
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+}

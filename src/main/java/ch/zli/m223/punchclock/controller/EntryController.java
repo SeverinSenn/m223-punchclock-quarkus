@@ -1,4 +1,4 @@
-package ch.zli.m223.punchclock.controller;
+/*package ch.zli.m223.punchclock.controller;
 
 import java.util.List;
 
@@ -56,3 +56,4 @@ public class EntryController {
     }
 
 }
+*/

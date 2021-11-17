@@ -1,4 +1,4 @@
-package ch.zli.m223.punchclock.service;
+/*package ch.zli.m223.punchclock.service;
 
 import java.util.List;
 
@@ -37,8 +37,9 @@ public class EntryService {
     }
 
     @Transactional
-    public Entry updateEntity(Entry entry){
+        public Entry updateEntity(Entry entry){
         entityManager.merge(entry);
         return entry;
     }
 }
+*/

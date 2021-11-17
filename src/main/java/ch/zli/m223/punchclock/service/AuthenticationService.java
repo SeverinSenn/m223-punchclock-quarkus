@@ -20,7 +20,7 @@ public class AuthenticationService {
     public Boolean CheckIfUserExists(User u){
         var query =
                 entityManager.createQuery("SELECT COUNT(*) FROM User WHERE username = :username and passwort = :pw")
-                .setParameter("username",u.getUsername())
+                .setParameter("username",u.getEmail())
                 .setParameter("pw",u.getPasswort());
         var res = query.getSingleResult();
         return (Long)res == 1;

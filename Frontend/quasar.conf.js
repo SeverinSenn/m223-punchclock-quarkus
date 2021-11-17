@@ -1,11 +1,17 @@
-/*
- * This file runs in a Node context (it's NOT transpiled by Babel), so use only
- * the ES6 features that are supported by your Node version. https://node.green/
- */
+const chalk = require('chalk')
 
-// Configuration for your app
-// https://quasar.dev/quasar-cli/quasar-conf-js
+let env = require('./config/dev.env')
 
+switch (process.env.PROFILE) {
+  case 'sse':
+    console.log(chalk.cyan('\n Using sse env.\n'))
+    env = require('./config/sse.env')
+    break
+  default:
+    console.log(chalk.cyan('\n Using prod env.\n'))
+    env = require('./config/prod.env')
+    break
+}
 /* eslint-env node */
 const ESLintPlugin = require('eslint-webpack-plugin')
 const { configure } = require('quasar/wrappers')
@@ -47,6 +53,7 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
+      env: env,
       vueRouterMode: 'hash', // available values: 'hash', 'history'
 
       // transpile: false,

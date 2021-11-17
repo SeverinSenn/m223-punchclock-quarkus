@@ -20,7 +20,7 @@ public class AuthenticationController {
     @Produces(MediaType.TEXT_PLAIN)
     public String Login(User user){
         if(authenticationService.CheckIfUserExists(user)){
-            return authenticationService.GenerateValidJwtToken(user.getUsername());
+            return authenticationService.GenerateValidJwtToken(user.getEmail());
         }else{
             throw new NotAuthorizedException("");
         }

@@ -3,7 +3,6 @@
    <q-header elevated>
    </q-header>  
     <q-page-container>
-        asdads
       <router-view />
     </q-page-container>
 </q-layout>

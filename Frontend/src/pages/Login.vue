@@ -4,8 +4,8 @@
         <h1>Login</h1>
         <div style="max-width: 300px;" class="q-mx-auto">
             <form-wrapper :validator="$v">
-                <form-group name="username">
-                    <q-input v-model="username" label="Username" slot-scope="{attrs}" v-bind="attrs" /><br />
+                <form-group name="email">
+                    <q-input v-model="email" label="email" slot-scope="{attrs}" v-bind="attrs" /><br />
                 </form-group>
 
                 <form-group name="password">
@@ -13,21 +13,28 @@
                 </form-group>
             </form-wrapper>
         </div>
-        <q-btn flat  label="Submit" @click="submitLogin" />
+        <q-btn flat label="Submit" @click="submitLogin" />
     </div>
 
 </q-page>
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators'
-import { Notify } from 'quasar'
+import {
+    required
+} from 'vuelidate/lib/validators'
+import {
+    Notify
+} from 'quasar'
+import {
+    useStore
+} from 'vuex'
 
 export default {
     name: 'Loginpage',
     data() {
         return {
-            username: "",
+            email: "",
             password: "",
         }
     },
@@ -37,23 +44,24 @@ export default {
         password: {
             required
         },
-        username: {
+        email: {
             required
         }
     },*/
     methods: {
         async submitLogin() {
+            const $store = useStore()
+            /*
             this.$v.$touch()
             if (this.$v.$invalid) {
                 return
-            }
-            console.log("asd")
-            let res = await axios.post('/User/Login', {
-                Username: this.username,
-                Password: this.password
+            }*/
+            let res = await axios.post('/auth/Login', {
+                email: this.email,
+                passwort: this.password
             })
             if (res.status === 200) {
-                const token = res.data.token
+                const token = res.data
                 if (token == undefined) {
                     Notify.create({
                         position: 'top',
@@ -61,12 +69,12 @@ export default {
                         message: 'login failed'
                     })
                     this.password = ''
-                    this.$v.$reset()
+                    //this.$v.$reset()
                     return;
                 }
-                $store.dispatch("auth/logout");
-                $store.dispatch("auth/login", {
-                    jwt: token
+                this.$store.dispatch("auth/logout");
+                this.$store.dispatch("auth/login", {
+                    jwt: token,
                 });
                 Notify.create({
                     position: 'top',

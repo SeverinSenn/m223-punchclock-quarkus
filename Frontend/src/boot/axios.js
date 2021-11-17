@@ -5,13 +5,13 @@ export default boot(({ app, store }) => {
   const instance = axios.create({
     baseURL: process.env.API_URL,
     headers: {
-      authorization: "Bearer " + store.getters["auth/JWT"]
+      authorization: store.getters["auth/JWT"] != null ? "Bearer " + store.getters["auth/JWT"] : ""
     }
   });
 
   instance.interceptors.response.use(
     response => {
-      Vue.$log.debug("Response: " + response.request.responseURL, response);
+      //Vue.$log.debug("Response: " + response.request.responseURL, response);
 
       if (response.status == 500) {
         Notify.create({
@@ -24,7 +24,7 @@ export default boot(({ app, store }) => {
       return response;
     },
     error => {
-      Vue.$log.debug("Network error:", error);
+      //Vue.$log.debug("Network error:", error);
       let response = error.response;
 
       if (response.status == 403 || response.status == 401) {
@@ -64,7 +64,7 @@ export default boot(({ app, store }) => {
   app.config.globalProperties.$api = instance
   // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
   //       so you can easily perform requests against your app's API
-  window.axios
+  window.axios = instance
 })
 
 

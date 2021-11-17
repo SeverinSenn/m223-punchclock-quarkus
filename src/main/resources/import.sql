@@ -1,0 +1,1 @@
+Insert Into User(EMAIL,IS_ADMIN,VORNAME,NACHNAME,PASSWORT) VALUES ('severin@senn-online.ch',true,'Severin','Senn','test');

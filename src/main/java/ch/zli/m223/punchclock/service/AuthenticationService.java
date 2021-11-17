@@ -19,18 +19,22 @@ public class AuthenticationService {
 
     public Boolean CheckIfUserExists(User u){
         var query =
-                entityManager.createQuery("SELECT COUNT(*) FROM User WHERE username = :username and passwort = :pw")
-                .setParameter("username",u.getEmail())
-                .setParameter("pw",u.getPasswort());
+                entityManager.createQuery("SELECT COUNT(*) FROM User WHERE email = :email and passwort = :passwort")
+                .setParameter("email",u.getEmail())
+                .setParameter("passwort",u.getPasswort());
         var res = query.getSingleResult();
         return (Long)res == 1;
     }
 
-    public String GenerateValidJwtToken(String username){
+    public String GenerateValidJwtToken(User user){
+        var permissions = Arrays.asList("User");
+        if(user.getIs_Admin()){
+            permissions.add("Admin");
+        }
         String token =
             Jwt.issuer("https://zli.ch/issuer") 
-            .upn(username) 
-            .groups(new HashSet<>(Arrays.asList("User", "Admin"))) 
+            .upn(user.getEmail())
+            .groups(new HashSet<>(permissions))
             .claim(Claims.birthdate.name(), "2001-07-13")
             .expiresIn(Duration.ofHours(1)) 
             .sign();

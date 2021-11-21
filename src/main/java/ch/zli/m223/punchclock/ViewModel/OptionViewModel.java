@@ -1,6 +1,7 @@
 package ch.zli.m223.punchclock.ViewModel;
 
 import ch.zli.m223.punchclock.domain.Project;
+import ch.zli.m223.punchclock.domain.User;
 import ch.zli.m223.punchclock.domain.UserGroup;
 
 import javax.swing.*;
@@ -23,6 +24,11 @@ public class OptionViewModel {
     public OptionViewModel(UserGroup group){
         Label = group.getName();
         Value = group.getId().toString();
+    }
+
+    public OptionViewModel(User user){
+        Label = user.getEmail();
+        Value = user.getId().toString();
     }
 
     public String getLabel() {

@@ -1,6 +1,7 @@
 package ch.zli.m223.punchclock.controller;
 
 import ch.zli.m223.punchclock.ViewModel.OptionViewModel;
+import ch.zli.m223.punchclock.ViewModel.ProjectViewModel;
 import ch.zli.m223.punchclock.ViewModel.UserViewModel;
 import ch.zli.m223.punchclock.domain.User;
 import ch.zli.m223.punchclock.service.ProjectService;
@@ -27,6 +28,13 @@ public class ProjectController {
     public List<OptionViewModel> GetAllOptions() {
         var projects = projectService.findAll();
         return projects.stream().map(x -> new OptionViewModel(x)).collect(Collectors.toList());
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<ProjectViewModel> GetAll() {
+        var projects = projectService.findAll();
+        return projects.stream().map(x -> new ProjectViewModel(x)).collect(Collectors.toList());
     }
 
 }

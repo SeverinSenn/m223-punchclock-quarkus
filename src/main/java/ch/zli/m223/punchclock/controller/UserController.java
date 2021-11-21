@@ -1,5 +1,6 @@
 package ch.zli.m223.punchclock.controller;
 
+import ch.zli.m223.punchclock.ViewModel.OptionViewModel;
 import ch.zli.m223.punchclock.ViewModel.UserViewModel;
 import ch.zli.m223.punchclock.domain.User;
 import ch.zli.m223.punchclock.service.AuthenticationService;
@@ -34,6 +35,14 @@ public class UserController {
     public List<UserViewModel> GetAll() {
         var users = userService.findAll();
         return users.stream().map(x -> new UserViewModel(x)).collect(Collectors.toList());
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/options")
+    public List<OptionViewModel> GetAllOptions() {
+        var users = userService.findAll();
+        return users.stream().map(x -> new OptionViewModel(x)).collect(Collectors.toList());
     }
 
     @GET

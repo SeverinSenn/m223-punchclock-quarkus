@@ -59,7 +59,7 @@ export default defineComponent({
           title: "Zeit",
           caption: "Zeit Eintragen",
           icon: "manage_accounts",
-          link: "/Zeite",
+          link: "/",
         },
       ];
       if (this.jwtToken.groups.includes("Admin")) {

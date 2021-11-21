@@ -13,11 +13,16 @@ import javax.persistence.EntityManager;
 import ch.zli.m223.punchclock.domain.User;
 import io.smallrye.jwt.build.Jwt;
 import org.eclipse.microprofile.jwt.Claims;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 
 @RequestScoped
 public class AuthenticationService {
     @Inject
     private EntityManager entityManager;
+    @Inject
+    private UserService userService;
+    @Inject
+    private JsonWebToken jwt;
 
     public Boolean CheckIfUserExists(User u){
         var query =
@@ -42,6 +47,11 @@ public class AuthenticationService {
             .expiresIn(Duration.ofHours(1)) 
             .sign();
         return token;
+    }
+
+    public User getUser(){
+        var email = jwt.getClaim("upn").toString();
+        return userService.getEntryByEmail(email);
     }
 
 }

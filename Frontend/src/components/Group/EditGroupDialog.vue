@@ -69,6 +69,7 @@ export default {
       this.opened = true;
     },
     close() {
+      this.clearData();
       this.opened = false;
     },
     editGroup(group) {

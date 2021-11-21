@@ -10,9 +10,9 @@
 
         <q-select
           outlined
-          v-model="projects"
-          :options="projectOptions"
-          label="Projects"
+          v-model="group"
+          :options="groupOptions"
+          label="Group"
           emit-value
           map-options
           use-chips
@@ -55,8 +55,8 @@ export default {
       id: 0,
       name: "",
 
-      projects: [],
-      projectOptions: [],
+      group: [],
+      groupOptions: [],
       users: [],
       usersOptions: [],
     };
@@ -69,13 +69,14 @@ export default {
       this.opened = true;
     },
     close() {
+      this.clearData();
       this.opened = false;
     },
     editProject(Project) {
       if (Project !== undefined) {
         this.id = Project.id;
         this.name = Project.name;
-        this.projects = Project.projects.map((x) => x.value);
+        this.group = Project.groups.map((x) => x.value);
         this.users = Project.users.map((x) => x.value);
       }
       this.open();
@@ -86,7 +87,7 @@ export default {
           id: this.id,
           name: this.name,
           userids: this.users,
-          projectids: this.projects,
+          groupids: this.group,
         });
         if (res.status === 204) {
           Notify.create({
@@ -99,7 +100,7 @@ export default {
         let res = await axios.post("Project", {
           name: this.name,
           userids: this.users,
-          projectids: this.projects,
+          groupids: this.group,
         });
         if (res.status === 204) {
           Notify.create({
@@ -114,9 +115,9 @@ export default {
       this.close();
     },
     async getData() {
-      let res = await axios.get("Project/options");
+      let res = await axios.get("Group/options");
       if (res.status === 200) {
-        this.projectOptions = res.data;
+        this.groupOptions = res.data;
       }
       res = await axios.get("User/options");
       if (res.status === 200) {
@@ -127,8 +128,8 @@ export default {
       this.id = 0;
       this.name = "";
 
-      this.projects = [];
-      this.Projects = [];
+      this.users = [];
+      this.group = [];
     },
   },
 };

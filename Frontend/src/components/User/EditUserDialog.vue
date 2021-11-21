@@ -78,6 +78,7 @@ export default {
       this.opened = true;
     },
     close() {
+      this.clearData();
       this.opened = false;
     },
     editUser(user) {

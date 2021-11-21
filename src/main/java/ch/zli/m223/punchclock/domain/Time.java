@@ -10,7 +10,7 @@ public class Time {
     private Long id;
 
     @Column(nullable = false)
-    private Boolean checkIn;
+    private LocalDateTime checkIn;
 
     @Column(nullable = false)
     private LocalDateTime checkOut;
@@ -31,11 +31,11 @@ public class Time {
         this.id = id;
     }
 
-    public Boolean getCheckIn() {
+    public LocalDateTime getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(Boolean checkIn) {
+    public void setCheckIn(LocalDateTime checkIn) {
         this.checkIn = checkIn;
     }
 

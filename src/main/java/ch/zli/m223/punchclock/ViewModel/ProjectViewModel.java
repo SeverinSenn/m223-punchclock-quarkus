@@ -30,6 +30,10 @@ public class ProjectViewModel {
 
     }
 
+    public void MapTo(Project project){
+        project.setName(name);
+    }
+
     public Long getId() {
         return id;
     }

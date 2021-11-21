@@ -1,5 +1,7 @@
 package ch.zli.m223.punchclock.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,12 +19,14 @@ public class Group {
     @JoinTable(name = "User_Group",
             joinColumns = @JoinColumn(name = "group_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
+    @JsonIgnore
     private List<User> users;
 
     @ManyToMany
     @JoinTable(name = "Project_Group",
             joinColumns = @JoinColumn(name = "group_id"),
             inverseJoinColumns = @JoinColumn(name = "project_id"))
+    @JsonIgnore
     private List<Project> projects;
 
     public Long getId() {

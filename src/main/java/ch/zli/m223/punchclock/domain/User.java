@@ -1,6 +1,7 @@
 package ch.zli.m223.punchclock.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -38,6 +39,12 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "group_id"))
     private List<Group> groups;
+
+    public User(){
+        groups = new ArrayList<Group>();
+        projects = new ArrayList<Project>();
+        times = new ArrayList<Time>();
+    }
 
     public Long getId() {
         return id;

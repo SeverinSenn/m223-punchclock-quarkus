@@ -1,17 +1,22 @@
 package ch.zli.m223.punchclock.controller;
 
+import ch.zli.m223.punchclock.ViewModel.UserViewModel;
 import ch.zli.m223.punchclock.domain.User;
 import ch.zli.m223.punchclock.service.AuthenticationService;
 import ch.zli.m223.punchclock.service.UserService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.security.SecureRandom;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path("/User")
+@RolesAllowed("Admin")
 public class UserController {
 
     @Inject
@@ -19,8 +24,9 @@ public class UserController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<User> GetAll() {
-        return userService.findAll();
+    public List<UserViewModel> GetAll() {
+        var users = userService.findAll();
+        return users.stream().map(x -> new UserViewModel(x)).collect(Collectors.toList());
     }
 
     @GET

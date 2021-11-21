@@ -35,13 +35,13 @@ public class User {
     private List<Project> projects;
 
     @ManyToMany
-    @JoinTable(name = "User_Group",
+    @JoinTable(name = "User_UserGroup",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "group_id"))
-    private List<Group> groups;
+            inverseJoinColumns = @JoinColumn(name = "usergroup_id"))
+    private List<UserGroup> groups;
 
     public User(){
-        groups = new ArrayList<Group>();
+        groups = new ArrayList<UserGroup>();
         projects = new ArrayList<Project>();
         times = new ArrayList<Time>();
     }
@@ -110,11 +110,11 @@ public class User {
         this.projects = projects;
     }
 
-    public List<Group> getGroups() {
+    public List<UserGroup> getGroups() {
         return groups;
     }
 
-    public void setGroups(List<Group> groups) {
+    public void setGroups(List<UserGroup> groups) {
         this.groups = groups;
     }
 

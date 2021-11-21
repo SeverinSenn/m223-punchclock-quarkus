@@ -7,7 +7,6 @@ import ch.zli.m223.punchclock.service.UserService;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.awt.*;
 
 @Path("/auth")
 public class AuthenticationController {

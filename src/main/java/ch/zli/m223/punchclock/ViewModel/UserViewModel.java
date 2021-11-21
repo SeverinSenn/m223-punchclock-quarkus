@@ -17,9 +17,12 @@ public class UserViewModel {
 
     private Boolean is_Admin;
 
-    private List<String> projects;
+    private List<OptionViewModel> projects;
+    private List<OptionViewModel> groups;
 
-    private List<String> groups;
+    private List<Long> projectids;
+
+    private List<Long> groupids;
 
     public UserViewModel(User u){
         id = u.getId();
@@ -27,12 +30,35 @@ public class UserViewModel {
         vorname = u.getVorname();
         nachname = u.getNachname();
         is_Admin = u.getIs_Admin();
-        projects = u.getProjects().stream().map(x -> x.getName()).collect(Collectors.toList());
-        groups = u.getGroups().stream().map(x -> x.getName()).collect(Collectors.toList());
+        projects = u.getProjects().stream().map(x -> new OptionViewModel(x)).collect(Collectors.toList());
+        groups = u.getGroups().stream().map(x -> new OptionViewModel(x)).collect(Collectors.toList());
     }
 
     public UserViewModel(){
 
+    }
+
+    public void MapTo(User user){
+        user.setEmail(email);
+        user.setVorname(vorname);
+        user.setNachname(nachname);
+        user.setIs_Admin(is_Admin);
+    }
+
+    public List<Long> getProjectids() {
+        return projectids;
+    }
+
+    public void setProjectids(List<Long> projectids) {
+        this.projectids = projectids;
+    }
+
+    public List<Long> getGroupids() {
+        return groupids;
+    }
+
+    public void setGroupids(List<Long> groupids) {
+        this.groupids = groupids;
     }
 
     public Long getId() {
@@ -75,19 +101,19 @@ public class UserViewModel {
         this.is_Admin = is_Admin;
     }
 
-    public List<String> getProjects() {
+    public List<OptionViewModel> getProjects() {
         return projects;
     }
 
-    public void setProjects(List<String> projects) {
+    public void setProjects(List<OptionViewModel> projects) {
         this.projects = projects;
     }
 
-    public List<String> getGroups() {
+    public List<OptionViewModel> getGroups() {
         return groups;
     }
 
-    public void setGroups(List<String> groups) {
+    public void setGroups(List<OptionViewModel> groups) {
         this.groups = groups;
     }
 }

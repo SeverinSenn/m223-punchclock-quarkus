@@ -1,30 +1,30 @@
 <template>
   <q-page>
-     {{users}}
-</q-page>
+    <EditUserDialog
+      ref="EditUserDialog"
+      @changed="$refs.UserTable.getAllUsers()"
+    />
+    <UserTable ref="UserTable" @editUser="editUser" />
+  </q-page>
 </template>
 
 <script>
+import UserTable from "components/User/UserTable.vue";
+import EditUserDialog from "components/User/EditUserDialog.vue";
+
 export default {
-    data(){
-        return{
-            users:[]
-        }
+  components: { UserTable, EditUserDialog },
+  data() {
+    return {};
+  },
+  computed: {},
+  mounted() {},
+  methods: {
+    editUser(val) {
+      this.$refs.EditUserDialog.editUser(val);
     },
-    mounted(){
-        this.getAllUsers();
-    },
-    methods:{
-        async getAllUsers(){
-            let res = await axios.get("/User")
-            if(res.status === 200){
-                this.users = res.data;
-            }
-        }
-    }
-}
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -25,10 +25,10 @@ public class Project {
     private List<User> users;
 
     @ManyToMany
-    @JoinTable(name = "Project_Group",
+    @JoinTable(name = "Project_UserGroup",
             joinColumns = @JoinColumn(name = "project_id"),
-            inverseJoinColumns = @JoinColumn(name = "group_id"))
-    private List<Group> groups;
+            inverseJoinColumns = @JoinColumn(name = "usergroup_id"))
+    private List<UserGroup> groups;
 
     public Long getId() {
         return id;
@@ -62,11 +62,11 @@ public class Project {
         this.users = users;
     }
 
-    public List<Group> getGroups() {
+    public List<UserGroup> getGroups() {
         return groups;
     }
 
-    public void setGroups(List<Group> groups) {
+    public void setGroups(List<UserGroup> groups) {
         this.groups = groups;
     }
 }

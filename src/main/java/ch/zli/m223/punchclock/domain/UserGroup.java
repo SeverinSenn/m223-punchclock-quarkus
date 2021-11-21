@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Group {
+public class UserGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,15 +16,15 @@ public class Group {
     private String name;
 
     @ManyToMany
-    @JoinTable(name = "User_Group",
-            joinColumns = @JoinColumn(name = "group_id"),
+    @JoinTable(name = "User_UserGroup",
+            joinColumns = @JoinColumn(name = "usergroup_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     @JsonIgnore
     private List<User> users;
 
     @ManyToMany
-    @JoinTable(name = "Project_Group",
-            joinColumns = @JoinColumn(name = "group_id"),
+    @JoinTable(name = "Project_UserGroup",
+            joinColumns = @JoinColumn(name = "usergroup_id"),
             inverseJoinColumns = @JoinColumn(name = "project_id"))
     @JsonIgnore
     private List<Project> projects;

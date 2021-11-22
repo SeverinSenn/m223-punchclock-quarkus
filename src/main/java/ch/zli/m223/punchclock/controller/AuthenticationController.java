@@ -4,6 +4,7 @@ import ch.zli.m223.punchclock.ViewModel.LoginViewModel;
 import ch.zli.m223.punchclock.domain.User;
 import ch.zli.m223.punchclock.service.AuthenticationService;
 import ch.zli.m223.punchclock.service.UserService;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 
 import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
@@ -24,6 +25,7 @@ public class AuthenticationController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
+    @Operation(summary = "User Login", description = "gives the user a jwt if correctly loged in")
     public LoginViewModel Login(User user){
         var model = new LoginViewModel();
         if(user.getPasswort().isEmpty()){
@@ -50,6 +52,7 @@ public class AuthenticationController {
 
     @POST
     @Path("/setpasswort")
+    @Operation(summary = "Sets Users Passwort", description = "The user sets his Password throw this Methoed")
     public void SetPasswort(User model){
         var user = authenticationService.getUser();
         user.setPasswort(model.getPasswort());

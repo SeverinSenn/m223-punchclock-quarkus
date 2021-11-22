@@ -9,6 +9,7 @@ import ch.zli.m223.punchclock.domain.UserGroup;
 import ch.zli.m223.punchclock.service.GroupService;
 import ch.zli.m223.punchclock.service.ProjectService;
 import ch.zli.m223.punchclock.service.UserService;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.annotation.security.RolesAllowed;
@@ -33,6 +34,7 @@ public class GroupController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/options")
+    @Operation(summary = "gets all Groups as a OptionViewModel", description = "This is used for the selects in the Frontend")
     public List<OptionViewModel> GetAllOptions() {
         var projects = groupService.findAll();
         return projects.stream().map(x -> new OptionViewModel(x)).collect(Collectors.toList());
@@ -40,6 +42,7 @@ public class GroupController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Gets All Groups", description = " gets all Groups as a GroupViewModel")
     public List<GroupViewModel> GetAll() {
         var groups = groupService.findAll();
         return groups.stream().map(x -> new GroupViewModel(x)).collect(Collectors.toList());
@@ -47,6 +50,7 @@ public class GroupController {
 
     @DELETE
     @Path("/{id}")
+    @Operation(summary = "Delets Group")
     public void deleteEntry(@PathParam Long id){
         groupService.delete(id);
     }
@@ -54,6 +58,7 @@ public class GroupController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Creates Group")
     public void CreateGroup(GroupViewModel group) {
         var newUserGroup = new UserGroup();
         group.MapTo(newUserGroup);
@@ -63,6 +68,7 @@ public class GroupController {
     }
 
     @PUT
+    @Operation(summary = "Updates Group")
     public void update(GroupViewModel group){
         var updatingUserGroup = groupService.getEntryById(group.getId());
         group.MapTo(updatingUserGroup);

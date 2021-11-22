@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path("/User")
@@ -35,6 +36,7 @@ public class UserController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "GetsAll Users")
     public List<UserViewModel> GetAll() {
         var users = userService.findAll();
         return users.stream().map(x -> new UserViewModel(x)).collect(Collectors.toList());
@@ -43,6 +45,7 @@ public class UserController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/options")
+    @Operation(summary = "gets all Users as a OptionViewModel", description = "This is used for the selects in the Frontend")
     public List<OptionViewModel> GetAllOptions() {
         var users = userService.findAll();
         return users.stream().map(x -> new OptionViewModel(x)).collect(Collectors.toList());
@@ -51,6 +54,7 @@ public class UserController {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "gets Singel User by Id")
     public User getSingleEntry(@PathParam Long id) {
         return userService.getEntryById(id);
     }
@@ -58,6 +62,7 @@ public class UserController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Creates User")
     public void CreateUser(UserViewModel user) {
         var newUser = new User();
         user.MapTo(newUser);
@@ -67,6 +72,7 @@ public class UserController {
     }
 
     @PUT
+    @Operation(summary = "Updates User")
     public void update(UserViewModel user){
         var updatingUser = userService.getEntryById(user.getId());
         user.MapTo(updatingUser);
@@ -77,6 +83,7 @@ public class UserController {
 
     @DELETE
     @Path("/{id}")
+    @Operation(summary = "Delets User")
     public void deleteEntry(@PathParam Long id){
         userService.delete(id);
     }

@@ -4,5 +4,4 @@ insert Into Project(Name) VALUES('JBVS');
 insert Into Project(Name) VALUES('AUS');
 
 insert Into UserGroup(Name) VALUES('DEV');
-insert Into UserGroup(Name) VALUES('Sekretär');
-insert Into UserGroup(Name) VALUES('aasd');
+insert Into UserGroup(Name) VALUES('Sekretariat');

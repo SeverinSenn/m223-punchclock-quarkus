@@ -1,0 +1,205 @@
+commit 09c1bb37da720491c7559f2e81fe512045a5b201
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Mon Nov 22 13:04:17 2021 +0100
+
+    updatet ReadMe Abweichungen
+
+commit 300b85e1b5926593729443548b5ec48194de02e5
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Mon Nov 22 11:45:25 2021 +0100
+
+    add JPQL
+
+commit a7e4f5e90d8562abcdd4a33fa707a672afc7906c
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Mon Nov 22 09:52:04 2021 +0100
+
+    add commentary
+
+commit 7d785a79e2dc9d640a212c9f38657409d4ac50f7
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Mon Nov 22 09:49:18 2021 +0100
+
+    updated Readme
+
+commit bc6a7f949c38f2f0b5ff4efa7dc637273dd7b0c4
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Mon Nov 22 09:18:29 2021 +0100
+
+    add hasPasswort to user Table
+
+commit 7ce8fdd381de08111623e29461d80f464269494c
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Mon Nov 22 09:14:27 2021 +0100
+
+    add setpasswort
+
+commit fc0213e21e6cd18b411f626eaa89b816b7b1f3b7
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Mon Nov 22 08:17:10 2021 +0100
+
+    delete Entry
+
+commit 5e63ca2e2ac365b9a7406853106c89e7fe0844e8
+Author: Senn <severin@senn-online.ch>
+Date:   Mon Nov 22 00:08:48 2021 +0100
+
+    Time Managment
+
+commit 83a13b7bc167a34f15990d46258ef7d972618177
+Author: Senn <severin@senn-online.ch>
+Date:   Sun Nov 21 22:35:06 2021 +0100
+
+    add GroupManagement
+
+commit 9cf201c05c912cc77353a953695e48bd0d187210
+Author: Senn <severin@senn-online.ch>
+Date:   Sun Nov 21 21:49:21 2021 +0100
+
+    Add UserManagement
+
+commit 0c60fd38fcf1f479ec64bf8bea30c432c06c4f55
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Sun Nov 21 19:05:29 2021 +0100
+
+    Add UserController
+
+commit 9631a06b28e4b250b076723ee51ed9b33ffb2ba3
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Wed Nov 17 16:20:29 2021 +0100
+
+    Made Layout
+
+commit 99675f3adcc5f5878de6a3be3d6e6baf29f95e00
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Wed Nov 17 15:50:38 2021 +0100
+
+    add Login
+
+commit daad434c6e76a4465066b3c00a63bb191a6bcb7f
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Wed Nov 17 13:40:32 2021 +0100
+
+    Fehler auskommentiert
+
+commit 96beef6668466e5282faaef7eafef51b90405dcd
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Wed Nov 17 13:31:47 2021 +0100
+
+    add routing and Vuex
+
+commit 59b1f1c77f431a1beec3730c2219eb547ebc56cd
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Wed Nov 17 10:23:27 2021 +0100
+
+    Clean Up Punchclock
+
+commit 295af82a5650b6825c5e44bd29405310a426de41
+Author: S-Senn <severin@senn-online.ch>
+Date:   Wed Nov 10 11:20:20 2021 +0100
+
+    Merge branch 'crud' into main
+    
+    # Conflicts:
+    #       src/main/java/ch/zli/m223/punchclock/controller/EntryController.java
+
+commit 98c961e7e08be8dfb2d4704092cbe6dc519279b2
+Merge: 6e49cdf9 ae3041bd
+Author: S-Senn <severin@senn-online.ch>
+Date:   Wed Nov 10 11:19:20 2021 +0100
+
+    Merge branch 'crud' into main
+    
+    # Conflicts:
+    #       src/main/java/ch/zli/m223/punchclock/controller/EntryController.java
+
+commit 6e49cdf93052a96050590343db7c05b0ec595ead
+Author: florianbosshard <florian.bosshard@gmail.com>
+Date:   Thu Sep 16 14:00:51 2021 +0200
+
+    Fix typos and path
+
+commit 86b662ec427f7939f3766e7faf41a060fe65bc32
+Merge: 0d3a1015 68e607f7
+Author: florianbosshard <florian.bosshard@gmail.com>
+Date:   Wed Sep 15 19:26:06 2021 +0200
+
+    Merge pull request #2 from zlict/localJwtAuth
+    
+    Add Auth
+
+commit 68e607f766d4d9c36018e91f40553a0d5de3d259
+Merge: 03a33406 0d3a1015
+Author: Florian Bosshard <florian.bosshard@gmail.com>
+Date:   Wed Sep 15 19:24:18 2021 +0200
+
+    Merge branch 'main' into localJwtAuth
+
+commit 03a334066e3562582ef4b5c244b59164ffbd3618
+Author: Florian Bosshard <florian.bosshard@gmail.com>
+Date:   Wed Sep 15 19:20:00 2021 +0200
+
+    simplified local authentication
+
+commit 0d3a1015c41c5799b16ece6dd8204c58b63334a6
+Merge: edd742c9 853da8fe
+Author: florianbosshard <florian.bosshard@gmail.com>
+Date:   Wed Sep 15 18:43:42 2021 +0200
+
+    Merge pull request #1 from zlict/h2Console
+    
+    add h2 console
+
+commit 853da8feec960645ccc5465f76b3b1f00b67b1ee
+Author: Florian Bosshard <florian.bosshard@gmail.com>
+Date:   Thu Sep 9 20:53:38 2021 +0200
+
+    add h2 console
+
+commit aa6ecbb2e6812787b31c736d5b07b6426ab45cc4
+Author: Florian Bosshard <florian.bosshard@gmail.com>
+Date:   Tue Sep 7 21:43:59 2021 +0200
+
+    add some comments for openapi / swagger
+
+commit 852aa56ec4e5940335a390e8aad1d3552b287661
+Author: Florian Bosshard <florian.bosshard@gmail.com>
+Date:   Tue Sep 7 21:15:46 2021 +0200
+
+    add example controller for generating a jwt token
+
+commit 7802d6882a30cc29a4ef5e211d64c4b2d4790d46
+Author: Florian Bosshard <florian.bosshard@gmail.com>
+Date:   Tue Sep 7 20:40:13 2021 +0200
+
+    added local JWT auth
+
+commit ae3041bd284eb7950f5699e685bcb73d9d306ecd
+Author: Florian Bosshard <florian.bosshard@gmail.com>
+Date:   Thu Sep 2 18:01:28 2021 +0200
+
+    add crud operations to rest api and entryService
+
+commit edd742c91f20a863d868f5725cf31f1cac7aae72
+Author: Florian Bosshard <florian.bosshard@gmail.com>
+Date:   Wed Sep 1 22:20:06 2021 +0200
+
+    add maven wrapper
+
+commit 33f51b61f94ebcaa1998dd056b0819d33096b162
+Author: Florian Bosshard <florian.bosshard@gmail.com>
+Date:   Tue Aug 31 22:35:55 2021 +0200
+
+    Initial Application
+
+commit 79b22913a4b9c1e48bd72e59fd4c24d0b51f7870
+Author: Florian Bosshard <florian.bosshard@gmail.com>
+Date:   Tue Aug 31 22:35:09 2021 +0200
+
+    Initial verison
+
+commit f843a2f40f08694f1a21166b304e4aa18cd64d44
+Author: florianbosshard <florian.bosshard@gmail.com>
+Date:   Tue Aug 31 20:08:13 2021 +0200
+
+    Initial commit

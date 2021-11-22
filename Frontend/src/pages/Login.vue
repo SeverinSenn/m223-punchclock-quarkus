@@ -3,13 +3,11 @@
     <div class="LoginPage">
       <h1>Login</h1>
       <div style="max-width: 300px" class="q-mx-auto">
-        <form-wrapper :validator="$v">
+        <form-wrapper >
           <form-group name="email">
             <q-input
               v-model="email"
               label="email"
-              slot-scope="{ attrs }"
-              v-bind="attrs"
             /><br />
           </form-group>
 
@@ -18,8 +16,6 @@
               v-model="password"
               type="password"
               label="Password"
-              slot-scope="{ attrs }"
-              v-bind="attrs"
             />
           </form-group>
         </form-wrapper>
@@ -42,24 +38,9 @@ export default {
       password: "",
     };
   },
-  /*
-    TODO: Fixen der Valdiation
-    validations: {
-        password: {
-            required
-        },
-        email: {
-            required
-        }
-    },*/
   methods: {
     async submitLogin() {
       const $store = useStore();
-      /*
-            this.$v.$touch()
-            if (this.$v.$invalid) {
-                return
-            }*/
       this.$store.dispatch("auth/logout");
       axios.defaults.headers.common["authorization"] = null;
       let res = await axios.post("/auth/Login", {
@@ -67,7 +48,7 @@ export default {
         passwort: this.password,
       });
       if (res.status === 200) {
-        const token = res.data;
+        const token = res.data.jwt;
         this.$store.dispatch("auth/logout");
         this.$store.dispatch("auth/login", {
           jwt: token,
@@ -77,7 +58,12 @@ export default {
           type: "positive",
           message: "login sucssesd",
         });
-        this.$router.push("/");
+        if(res.data.hasPasswort === true){
+          this.$router.push("/");
+        }else{
+          this.$router.push("/SetPasswort");
+        }
+        
       } else {
         Notify.create({
           position: "top",
@@ -85,7 +71,6 @@ export default {
           message: "login failed",
         });
         this.password = "";
-        //this.$v.$reset()
         return;
       }
     },

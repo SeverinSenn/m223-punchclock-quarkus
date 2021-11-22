@@ -8,6 +8,7 @@ import ch.zli.m223.punchclock.service.GroupService;
 import ch.zli.m223.punchclock.service.ProjectService;
 import ch.zli.m223.punchclock.service.UserService;
 
+import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -29,6 +30,8 @@ public class UserController {
     ProjectService projectService;
     @Inject
     GroupService groupService;
+    @Inject
+    AuthenticationService authenticationService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -77,4 +80,7 @@ public class UserController {
     public void deleteEntry(@PathParam Long id){
         userService.delete(id);
     }
+
+
+
 }

@@ -1,4 +1,4 @@
-# M223 Punchclock
+# M223 Punchclock Backend
 
 Folgende Schritte sind notwendig um die Applikation zu erstellen und zu starten: 
 1. Stellen Sie sicher, dass OpenJDK 11 oder höher installiert und JAVA_HOME korrekt gesetzt ist.  
@@ -18,4 +18,32 @@ H2 Console: http://localhost:8080/h2/
 Datenquelle: jdbc:h2:mem:punchclock
 Benutzername: zli
 Passwort: zli
+
+#M223 Punchclock Frontend
+## Install the dependencies
+```bash
+npm install
+```
+
+### Start the app in development mode
+```bash
+npm run dev-YourCinfiguration
+```
+### My prebuild Config for Backend on port 8080
+```bash
+npm run dev-sse
+```
+Wenn sie die Configuration anpassen wollen gehen sie in den Config ordner im Forntend und öffnene sie dann ihre js config und verändern sie diese .
+
+Frontend: http://localhost:8081/
+
+#M223 Punchclock TestDaten
+###TestUser: Severin Senn:
+email:severin@senn-online.ch passwort: test
+
+###Projekte: 
+JBE, JBVS, AUS
+
+###Gruppen:
+DEV, Sekretariat
 

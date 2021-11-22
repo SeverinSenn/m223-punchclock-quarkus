@@ -20,11 +20,11 @@ Benutzername: zli
 Passwort: zli
 
 #M223 Punchclock Frontend
+Schauen sie das sie Im Ordner Frontend sind wenn sie diese Commands ausführen
 ## Install the dependencies
 ```bash
 npm install
 ```
-
 ### Start the app in development mode
 ```bash
 npm run dev-YourCinfiguration
@@ -33,17 +33,27 @@ npm run dev-YourCinfiguration
 ```bash
 npm run dev-sse
 ```
-Wenn sie die Configuration anpassen wollen gehen sie in den Config ordner im Forntend und öffnene sie dann ihre js config und verändern sie diese .
+Wenn sie die Configuration anpassen wollen gehen sie in den Config Ordner im Frontend und öffnene sie dann ihre js config und verändern sie diese.
 
 Frontend: http://localhost:8081/
 
 #M223 Punchclock TestDaten
 ###TestUser: Severin Senn:
-email:severin@senn-online.ch passwort: test
+email:severin@senn-online.ch passwort: test Admin:True
 
 ###Projekte: 
 JBE, JBVS, AUS
 
 ###Gruppen:
 DEV, Sekretariat
+
+#M223 JPQL
+Diese JPQL hollt sich eine liste von Projekt Namen die Admins zugewissen sind und eine länge von 3 haben
+
+URL: http://localhost:8080/Project/GetProjectsNamesLen3List
+
+Query: select p.name from Project p join p.users user join user.projects p where user.is_Admin = true group by p.id HAVING length(p.name) = 3
+#M223 Abweichungen
+
+#M223 Git
 

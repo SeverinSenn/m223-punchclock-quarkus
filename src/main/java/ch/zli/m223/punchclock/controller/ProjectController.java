@@ -107,5 +107,17 @@ public class ProjectController {
         projectService.updateEntity(updatingProject);
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/GetProjectsNamesLen3List")
+    @PermitAll
+    @Operation(summary = "Gets a list of Projects Names",description = "gets you a List of Project names how have Admin and have a length of 3")
+    public List<String> GetProjectsNamesLen3List(){
+        var res = projectService.GetProjectsNamesLen3List();
+        return res;
+    }
+
+
+
 
 }

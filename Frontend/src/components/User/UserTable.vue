@@ -28,6 +28,9 @@
         <q-td>
           <q-checkbox v-model="props.row.is_Admin" disable />
         </q-td>
+         <q-td>
+          <q-checkbox v-model="props.row.hasPasswort" disable />
+        </q-td>
         <q-td>
           <q-chip
             color="primary"
@@ -87,6 +90,7 @@ export default {
           sortable: true,
         },
         { name: "is_Admin", label: "Admin", field: "is_Admin", sortable: true },
+        { name: "hasPasswort", label: "hasPasswort", field: "hasPasswort", sortable: true },
         {
           name: "projects",
           label: "projects",

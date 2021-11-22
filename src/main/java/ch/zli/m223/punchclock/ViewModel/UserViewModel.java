@@ -16,6 +16,7 @@ public class UserViewModel {
     private String nachname;
 
     private Boolean is_Admin;
+    private Boolean hasPasswort;
 
     private List<OptionViewModel> projects;
     private List<OptionViewModel> groups;
@@ -32,6 +33,11 @@ public class UserViewModel {
         is_Admin = u.getIs_Admin();
         projects = u.getProjects().stream().map(x -> new OptionViewModel(x)).collect(Collectors.toList());
         groups = u.getGroups().stream().map(x -> new OptionViewModel(x)).collect(Collectors.toList());
+        if(u.getPasswort() == null){
+            hasPasswort = false;
+        }else{
+            hasPasswort = true;
+        }
     }
 
     public UserViewModel(){
@@ -43,6 +49,14 @@ public class UserViewModel {
         user.setVorname(vorname);
         user.setNachname(nachname);
         user.setIs_Admin(is_Admin);
+    }
+
+    public Boolean getHasPasswort() {
+        return hasPasswort;
+    }
+
+    public void setHasPasswort(Boolean hasPasswort) {
+        this.hasPasswort = hasPasswort;
     }
 
     public List<Long> getProjectids() {

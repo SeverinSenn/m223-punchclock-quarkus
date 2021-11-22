@@ -1,3 +1,15 @@
+commit ddd8cba65803948183702685c3b9f30c266d47fd
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Mon Nov 22 13:17:11 2021 +0100
+
+    add redirect when not allowed Page access
+
+commit ff14d2a773329dde95fcc8301a93de0065fbe27e
+Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
+Date:   Mon Nov 22 13:06:53 2021 +0100
+
+    add log text
+
 commit 09c1bb37da720491c7559f2e81fe512045a5b201
 Author: Severin Senn <50795012+SeverinSenn@users.noreply.github.com>
 Date:   Mon Nov 22 13:04:17 2021 +0100

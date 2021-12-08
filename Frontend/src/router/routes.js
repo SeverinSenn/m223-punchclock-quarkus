@@ -34,6 +34,11 @@ const routes = [
         name: "Login",
         component: () => import("pages/Login.vue"),
       },
+      {
+        path: "SetPasswort",
+        component: () => import("pages/SetPasswort.vue"),
+        meta: { requiredRole: "*" },
+      },
     ],
   },
 

@@ -8,6 +8,7 @@ import ch.zli.m223.punchclock.domain.Time;
 import ch.zli.m223.punchclock.domain.User;
 import ch.zli.m223.punchclock.service.*;
 import org.eclipse.microprofile.jwt.JsonWebToken;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.annotation.security.RolesAllowed;
@@ -30,6 +31,7 @@ public class TimeController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "gets all Times")
     public List<TimeViewModel> GetAll() {
         var user = authenticationService.getUser();
         var times = timeService.findAllByUser(user);
@@ -38,6 +40,7 @@ public class TimeController {
 
     @DELETE
     @Path("/{id}")
+    @Operation(summary = "Delete Time")
     public void deleteEntry(@PathParam Long id){
         timeService.delete(id);
     }
@@ -45,6 +48,7 @@ public class TimeController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Creates Time")
     public void Create(TimeViewModel time) {
         var newTime = new Time();
         time.MapTo(newTime);
@@ -54,6 +58,7 @@ public class TimeController {
     }
 
     @PUT
+    @Operation(summary = "Updates Time")
     public void update(TimeViewModel time){
         var updatingTime = timeService.getEntryById(time.getId());
         time.MapTo(updatingTime);

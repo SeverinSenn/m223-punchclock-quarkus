@@ -41,4 +41,16 @@ public class ProjectService {
         entityManager.merge(project);
         return project;
     }
+
+    @Transactional
+    public List<String> GetProjectsNamesLen3List(){
+        var query = entityManager.createQuery("select p.name \n" +
+                "from Project p\n" +
+                "join p.users user \n" +
+                "join user.projects p where user.is_Admin = true group by p.id HAVING length(p.name) = 3 ");
+        return query.getResultList();
+    }
+
+
+
 }

@@ -33,6 +33,14 @@ public class AuthenticationService {
         return (Long)res == 1;
     }
 
+    public Boolean CheckIfUserExistsWithoutPW(User u){
+        var query =
+                entityManager.createQuery("SELECT COUNT(*) FROM User WHERE email = :email and passwort is null")
+                        .setParameter("email",u.getEmail());
+        var res = query.getSingleResult();
+        return (Long)res == 1;
+    }
+
     public String GenerateValidJwtToken(User user){
         List<String> permissions = new ArrayList<String>();
         permissions.add("User");
